@@ -1,1 +1,3 @@
-# snorflax-manager
+# Snorflax Manager
+
+***Managing tool for Snorflax***
