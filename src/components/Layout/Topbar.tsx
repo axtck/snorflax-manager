@@ -45,7 +45,7 @@ const Topbar: FunctionComponent<TopbarProps> = ({ isLoggedIn, onLoginLogoutClick
     });
 
     return (
-        <nav className="navbar navbar-expand-sm fixed-top navbar-dark bg-neat">
+        <nav className="navbar navbar-expand-sm fixed-top navbar-dark bg-info">
             <div className="container">
                 <h3
                     className="navbar-brand my-2"

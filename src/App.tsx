@@ -34,6 +34,7 @@ const App: FunctionComponent<AppProps> = () => {
     <React.Fragment>
       <Topbar onLoginLogoutClick={handleLogoutClick} isLoggedIn={login.loggedIn} />
       <div className="container mt-6">
+        <h4 className="bg-neat">testbg</h4>
         <div className="row justify-content-between">
           <div className="col-12 col-md-2">
             <div className="position-md-fixed">

@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    // box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Zen Kaku Gothic New", sans-serif;
     scrollbar-width: none;
     min-height: 150vh;
     padding-bottom: 5vh;

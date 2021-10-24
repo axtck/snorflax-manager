@@ -6,23 +6,23 @@ import { useHistory } from "react-router-dom";
 import { useAppSelector } from "../app/hooks";
 import TextInputForm from "../components/Forms/TextInputForm";
 import { openSnackbarError, openSnackbarSuccess } from "../redux/alertSlice";
-import { signinUserAsync } from "../redux/userLoginSlice";
+import { loginUserAsync } from "../redux/userLoginSlice";
 import { IUserLoginCredentials, ITextFieldDef } from "../types";
 
-interface SigninPageProps { };
+interface LoginPageProps { };
 
-const SigninPage: FunctionComponent<SigninPageProps> = () => {
+const LoginPage: FunctionComponent<LoginPageProps> = () => {
 
     const dispatch = useDispatch();
 
     const user = useAppSelector((state) => state.loginUser);
 
-    const initialUserSigninData: IUserLoginCredentials = {
+    const initialUserLoginData: IUserLoginCredentials = {
         username: "",
         password: "",
     };
 
-    const [userSigninData, setUserSigninData] = useState<IUserLoginCredentials>(initialUserSigninData);
+    const [userLoginData, setUserLoginData] = useState<IUserLoginCredentials>(initialUserLoginData);
 
     const history = useHistory();
 
@@ -44,30 +44,30 @@ const SigninPage: FunctionComponent<SigninPageProps> = () => {
 
     const handleUserDataChange = (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
-        setUserSigninData({
-            ...userSigninData,
+        setUserLoginData({
+            ...userLoginData,
             [e.target.name]: e.target.value
         });
     };
 
-    const handleSigninClick = (e: MouseEvent<HTMLButtonElement>) => {
+    const handleLoginClick = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        if (userSigninData.username && userSigninData.password) {
-            dispatch(signinUserAsync(userSigninData));
+        if (userLoginData.username && userLoginData.password) {
+            dispatch(loginUserAsync(userLoginData));
         }
     };
 
 
-    const signinFormFields: ITextFieldDef[] = [
+    const loginFormFields: ITextFieldDef[] = [
         {
             name: "username",
             label: "Username",
-            value: userSigninData.username,
+            value: userLoginData.username,
             onInputChange: handleUserDataChange
         }, {
             name: "password",
             label: "Password",
-            value: userSigninData.password,
+            value: userLoginData.password,
             onInputChange: handleUserDataChange,
             type: "password"
         }
@@ -75,15 +75,15 @@ const SigninPage: FunctionComponent<SigninPageProps> = () => {
 
     return (
         <div>
-            <h5>Sign in</h5>
+            <h5>Log in</h5>
 
-            <TextInputForm fields={signinFormFields} />
+            <TextInputForm fields={loginFormFields} />
             <div className="mt-3">
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleSigninClick} >
-                    sign in
+                    onClick={handleLoginClick} >
+                    Log in
                 </Button>
             </div>
 
@@ -98,4 +98,4 @@ const SigninPage: FunctionComponent<SigninPageProps> = () => {
     );
 };
 
-export default SigninPage;
+export default LoginPage;
